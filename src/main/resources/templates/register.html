@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Register</title>
+</head>
+<body>
+<div>
+    <form th:method="POST" th:action="@{/register}" th:object="${user}">
+        <input type="text" th:field="*{login}" placeholder="Login">
+        <div th:if="${#fields.hasErrors('login')}" th:errors="*{login}">Login errors</div>
+        <br/>
+        <input type="password" th:field="*{password}" placeholder="Password">
+        <div th:if="${#fields.hasErrors('password')}" th:errors="*{password}">Password error</div>
+        <br/>
+        <input type="password" th:field="*{confirmPassword}" placeholder="Confirm password">
+        <div th:if="${#fields.hasErrors('confirmPassword')}" th:errors="*{confirmPassword}">Password confirmation error</div>
+        <br/>
+        <input type="submit" value="Register">
+    </form>
+    <form th:method="GET" th:action="@{/login}">
+        <input type="submit" value="Log in">
+    </form>
+</div>
+</body>
+</html>
