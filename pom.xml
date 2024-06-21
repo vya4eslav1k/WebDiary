@@ -12,7 +12,7 @@
 	<artifactId>WebDiary</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>WebDiary</name>
-	<description>Second attept of SpringWebDBNotes</description>
+	<description>Second attempt of SpringWebDBNotes</description>
 	<properties>
 		<java.version>22</java.version>
 	</properties>

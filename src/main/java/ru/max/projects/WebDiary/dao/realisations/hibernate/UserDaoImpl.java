@@ -1,7 +1,6 @@
 package ru.max.projects.WebDiary.dao.realisations.hibernate;
 
 import org.hibernate.Session;
-import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import ru.max.projects.WebDiary.Entities.User;
@@ -15,16 +14,16 @@ public class UserDaoImpl implements UserDao {
     public UserDaoImpl(SessionFactoryPool sessionFactoryPool) {
         this.sessionFactoryPool = sessionFactoryPool;
     }
-//    @Override
-//    public User getUser(int id) {
-//        try (Session session = sessionFactoryPool.getSessionFactory().openSession()) {
-//            System.out.println("User found with id: " + id);
-//            return (User)session.get("User", id);
-//        }
-//        catch (Exception e) {
-//            return null;
-//        }
-//    }
+
+    @Override
+    public User getUser(int id) {
+        try (Session session = sessionFactoryPool.getSessionFactory().openSession()) {
+            return session.get(User.class, id);
+        }
+        catch (Exception e) {
+            return null;
+        }
+    }
 
     @Override
     public User getUser(String login) {
@@ -45,7 +44,6 @@ public class UserDaoImpl implements UserDao {
             return true;
         }
         catch (Exception e) {
-            e.printStackTrace();
             return false;
         }
     }

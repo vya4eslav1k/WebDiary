@@ -1,10 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
+    <meta charset="UTF-8" lang="en">
     <title>WebDiary</title>
+    <link rel="stylesheet" type="text/css" href="/css/index.css">
 </head>
 <body>
-
+<h1>Welcome to web-diary!</h1>
+<div>
+    <h2>Functionality/features</h2>
+    <ul>
+        <li>Create notes</li>
+        <li>Manage notes</li>
+        <li>Filter notes</li>
+        <li>Distribute notes in categories</li>
+        <li>Manage categories</li>
+        <li>Light & dark modes</li>
+    </ul>
+</div>
+<div class="buttons-container">
+    <form th:method="GET" th:action="@{/register}">
+        <input type="submit" value="Register">
+    </form>
+    <form th:method="GET" th:action="@{/login}">
+        <input type="submit" value="Log in">
+    </form>
+</div>
+<div class="reportBugs">
+    <form th:method="GET" th:action="@{https://t.me/vyacheslavik07}">
+        <input type="submit" value="Report about bugs">
+    </form>
+</div>
 </body>
 </html>

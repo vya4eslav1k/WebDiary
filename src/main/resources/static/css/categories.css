@@ -1,0 +1,92 @@
+body {
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(to right, #74ebd5, #acb6e5) fixed;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+}
+
+.upperButtons-container {
+    display: flex;
+    justify-content: space-between;
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 20px;
+    margin-bottom: 30px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+button {
+    background-color: #74ebd5;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+button:hover {
+    background-color: #acb6e5;
+}
+
+.category-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 20px;
+}
+
+.category-card {
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+    padding: 20px;
+    margin: 10px;
+    width: 25%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+input[type="text"] {
+    flex-grow: 2;
+    padding: 10px;
+    margin: 0 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.new-category {
+    display: inline-block;
+    width: 66%;
+    margin: 10px 0;
+    box-sizing: border-box;
+}
+
+button[type="submit"][value="Delete"]:hover {
+    background-color: red;
+}
+
+
+.dark-mode {
+    background: #121212;
+    color: #ffffff;
+}
+
+.dark-mode .category-card,
+.dark-mode .upperButtons-container {
+    background-color: #1e1e1e;
+    color: #ffffff;
+}
+
+.dark-mode input[type="text"] {
+    background-color: #333333;
+    color: #ffffff;
+}
+
+.dark-mode button {
+    background-color: #333333;
+    color: #ffffff;
+}

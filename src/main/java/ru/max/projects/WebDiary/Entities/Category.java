@@ -2,11 +2,9 @@ package ru.max.projects.WebDiary.Entities;
 
 import jakarta.persistence.*;
 
-import java.util.List;
-
 @Entity
-@Table(name = "group", schema = "webnotes")
-public class Group {
+@Table(name = "category", schema = "webnotes")
+public class Category {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
@@ -14,9 +12,15 @@ public class Group {
     private String name;
     @Column(name = "userId")
     private Integer userId;
-//    @OneToMany(cascade = CascadeType.ALL)
-//    @JoinColumn(name = "note_id")
-//    private List<Note> notes;
+
+    @Override
+    public String toString() {
+        return "Category{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", userId=" + userId +
+                '}';
+    }
 
     public Integer getId() {
         return id;

@@ -1,0 +1,91 @@
+
+body, html {
+    min-height: 100%;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(to right, #74ebd5, #acb6e5) fixed;
+}
+
+
+@keyframes appear {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+input[type="text"],
+input[type="password"],
+textarea[name="content"],
+input[type="submit"] {
+    width: calc(100% - 20px);
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    resize: vertical;
+}
+
+
+input[type="submit"] {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    color: white;
+    background-color: #74ebd5;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+
+input[type="submit"]:hover {
+    background-color: #acb6e5;
+}
+
+
+h1, h2 {
+    color: #333;
+    text-align: center;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+    text-align: left;
+}
+
+li {
+    background-color: #ffffff;
+    border: 1px solid #dddddd;
+    margin-bottom: 5px;
+    padding: 10px;
+    font-size: 16px;
+}
+
+
+.buttons-container {
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 15px;
+    margin-bottom: 20px;
+    width: 60%;
+    display: flex;
+    justify-content: space-around;
+}
+
+
+.reportBugs {
+    text-align: center;
+    margin-top: 20px;
+}

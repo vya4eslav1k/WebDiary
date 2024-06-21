@@ -1,0 +1,156 @@
+body {
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(to right, #74ebd5, #acb6e5) fixed;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+}
+
+.new-note {
+    display: inline-block;
+    width: auto;
+    margin: 10px 0;
+    box-sizing: border-box;
+}
+
+
+.note-card {
+    display: inline-block;
+    width: 40%;
+    /*margin: 10px 0;*/
+    box-sizing: border-box;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+    padding: 20px;
+    background-color: #fff;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+input[type="text"] {
+    width: calc(100% - 22px);
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+button {
+    background-color: #74ebd5;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+button:hover {
+    background-color: #acb6e5;
+}
+
+span.date {
+    display: block;
+    font-size: 0.8em;
+    margin-top: 10px;
+}
+
+input[name="title"] {
+    font-size: 1.3em;
+}
+
+textarea[name="content"] {
+    font-size: 1.5em;
+    width: calc(100% - 22px);
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    overflow-y: auto;
+    min-height: 100px;
+    resize: vertical;
+}
+
+
+.filter-container {
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 20px;
+    margin-bottom: 30px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.filter-container form {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.form-field {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-right: 15px;
+}
+
+.form-field label {
+    margin-right: 5px;
+}
+
+.filter-container label {
+    margin-right: 10px;
+}
+
+.filter-container input,
+.filter-container select {
+    margin-right: 20px;
+    margin-bottom: 10px;
+}
+
+.manage-categories-button {
+    background-color: #74ebd5;
+    color: white;
+    padding: 5px 10px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 0.8em;
+    margin-top: 5px;
+    margin-right: 20px;
+}
+
+.manage-categories-button:hover {
+    background-color: #acb6e5;
+}
+
+button[type="submit"][value="Delete"]:hover {
+    background-color: red;
+}
+
+
+
+.dark-mode {
+    background: #121212;
+    color: #ffffff;
+}
+
+.dark-mode .note-card,
+.dark-mode .new-note,
+.dark-mode .filter-container {
+    background-color: #1e1e1e;
+    color: #ffffff;
+}
+
+.dark-mode input[type="text"],
+.dark-mode textarea[name="content"] {
+    background-color: #333333;
+    color: #ffffff;
+}
+
+.dark-mode button {
+    background-color: #333333;
+    color: #ffffff;
+}

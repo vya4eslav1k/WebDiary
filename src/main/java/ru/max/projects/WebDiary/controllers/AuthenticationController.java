@@ -63,7 +63,6 @@ public class AuthenticationController {
         if (bindingResult.hasErrors()) return "register";
 
         if (userDao.getUser(user.getLogin()) != null) {
-            System.out.println("Found user with login: " + user.getLogin());
             bindingResult.addError(new FieldError("user", "login",  "Login is already in use"));
 
             return "register";

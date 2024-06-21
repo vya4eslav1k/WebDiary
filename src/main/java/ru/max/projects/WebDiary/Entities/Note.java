@@ -19,6 +19,30 @@ public class Note {
     private Date lastUpdate;
     @Column(name = "userId", nullable = false)
     private Integer userId;
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "categoryId")
+    private Category category;
+
+
+    public Category getCategory() {
+        return category;
+    }
+
+    public void setCategory(Category category) {
+        this.category = category;
+    }
+
+    @Override
+    public String toString() {
+        return "Note{" +
+                "id=" + id +
+                ", content='" + content + '\'' +
+                ", title='" + title + '\'' +
+                ", lastUpdate=" + lastUpdate +
+                ", userId=" + userId +
+                ", categoryId=" + category.getId() +
+                '}';
+    }
 
     public Integer getId() {
         return id;

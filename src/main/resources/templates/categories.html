@@ -1,10 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
+    <meta charset="UTF-8" lang="en">
+    <title>Categories</title>
+    <link rel="stylesheet" type="text/css" href="/css/categories.css">
 </head>
 <body>
-$END$
+<div class="upperButtons-container">
+    <form th:method="GET" th:action="@{/profile}">
+        <button type="submit">Back</button>
+    </form>
+</div>
+
+<div class="new-category">
+    <form th:method="POST" th:action="@{/category}" th:object="${user}">
+        <input type="hidden" name="id" th:value="${user.id}">
+        <button type="submit">Create new</button>
+    </form>
+</div>
+<br/>
+<div class="category-container">
+    <!-- Повторите этот блок для каждой категории -->
+    <div th:each="category : ${categoryList}" class="category-card">
+        <form th:method="PATCH" th:action="@{/category}">
+            <input type="hidden" name="id" th:value="${category.id}"/>
+            <input type="hidden" name="userId" th:value="${category.userId}">
+            <button type="submit">Save</button>
+            <input type="text" name="name" th:value="${category.name}"/>
+        </form>
+        <form th:method="DELETE" th:action="@{/category}">
+            <input type="hidden" name="id" th:value="${category.id}" />
+            <button type="submit" value="Delete">Delete</button>
+        </form>
+    </div>
+</div>
+<script src="/js/categories.js"></script>
 </body>
 </html>

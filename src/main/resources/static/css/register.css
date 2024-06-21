@@ -1,0 +1,76 @@
+
+body, html {
+    min-height: 100%;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(to right, #74ebd5, #acb6e5) fixed;
+}
+
+
+.container {
+    width: 100%;
+    max-width: 340px;
+}
+
+
+form {
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+    padding: 20px;
+    animation: appear 0.5s ease-in-out;
+}
+
+
+@keyframes appear {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+input[type="text"],
+input[type="password"],
+textarea[name="content"] {
+    width: calc(100% - 20px);
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    resize: vertical;
+}
+
+input[type="submit"] {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    color: white;
+    background-color: #74ebd5;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+
+input[type="submit"]:hover {
+    background-color: #acb6e5;
+}
+
+
+form:last-child input[type="submit"] {
+    background-color: #acb6e5;
+}
+
+form:last-child input[type="submit"]:hover {
+    background-color: #74ebd5;
+}
+

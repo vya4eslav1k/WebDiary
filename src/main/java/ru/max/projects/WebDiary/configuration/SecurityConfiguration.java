@@ -35,7 +35,7 @@ public class SecurityConfiguration {
                 .securityContext(context -> context.requireExplicitSave(true))
                 .csrf(Customizer.withDefaults())
                 .authorizeHttpRequests(auth ->
-                        auth.requestMatchers("/login", "/register", "/").permitAll()
+                        auth.requestMatchers("/login", "/register", "/", "/css/**", "/js/**").permitAll()
                                 .requestMatchers("/**").authenticated())
                 .formLogin(login -> login.loginPage("/login").defaultSuccessUrl("/profile", true))
                 .build();

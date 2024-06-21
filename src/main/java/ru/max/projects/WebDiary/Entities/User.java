@@ -18,6 +18,17 @@ public class User {
     @Transient
     private String confirmPassword;
 
+    @Override
+    public String toString() {
+        return "User{" +
+                "id=" + id +
+                ", login='" + login + '\'' +
+                ", password='" + password + '\'' +
+                ", role='" + role + '\'' +
+                ", confirmPassword='" + confirmPassword + '\'' +
+                '}';
+    }
+
     public String getConfirmPassword() {
         return confirmPassword;
     }

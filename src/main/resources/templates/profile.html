@@ -3,8 +3,81 @@
 <head>
     <meta charset="UTF-8">
     <title>Profile</title>
+    <link rel="stylesheet" type="text/css" href="/css/profile.css">
 </head>
 <body>
+<div class="filter-container">
+    <form th:method="GET" th:action="@{/profile}" th:object="${noteFilterForm}">
+        <div class="form-field">
+            <label for="categorySelection">Category:</label>
+            <select name="categoryId" id="categorySelection">
+                <option value="-1" th:selected="${noteFilterForm.categoryId == -1}">All notes</option>
+                <option th:each="category : ${categoryList}"
+                        th:value="${category.id}"
+                        th:text="${category.name}"
+                        th:selected="${category.id == noteFilterForm.categoryId}">
+                    User's custom categories
+                </option>
+            </select>
+            <button type="button" class="manage-categories-button" onclick="window.location.href='/categories'">Manage</button>
+        </div>
+        <div class="form-field">
+            <label for="startDate">Start date:</label>
+            <input name="startDate" type="date" id="startDate" th:value="${#dates.format(noteFilterForm.startDate, 'yyyy-MM-dd')}"/>
+        </div>
+        <div class="form-field">
+            <label for="endDate">End date:</label>
+            <input name="endDate" type="date" id="endDate" th:value="${#dates.format(noteFilterForm.endDate, 'yyyy-MM-dd')}"/>
+        </div>
+        <div class="form-field">
+            <label for="sortOrderAsc">Descending</label>
+            <input type="radio" name="sortOrder" value="desc" id="sortOrderAsc" checked>
+            <label for="sortOrderDesc">Ascending</label>
+            <input type="radio" name="sortOrder" value="asc" id="sortOrderDesc" th:checked="${noteFilterForm.sortOrder == 'asc'}">
+        </div>
+        <div class="form-field">
+            <button type="submit" value="Browse">Browse</button>
+        </div>
+    </form>
+    <button onclick="toggleDarkMode()">Light/dark</button>
+</div>
 
+<div class="new-note">
+    <form th:method="POST" th:action="@{/note}">
+        <input type="hidden" name="id" th:value="${user.id}">
+        <button type="submit" value="Add new">Create new</button>
+    </form>
+</div>
+<br/><br/>
+<div class="note-card" th:each="note : ${noteList}">
+    <form th:action="@{/note}" th:method="PATCH">
+        <input type="hidden" name="id" th:value="${note.id}"/>
+        <input type="hidden" name="userId" th:value="${note.userId}"/>
+        <span th:text="${#dates.format(note.lastUpdate, 'dd.MM.yyyy HH:mm')}"></span>
+        <br/>
+        <select name="category" id="category">
+            <option value="-1" th:selected="${note.category == null}">Uncategorized</option>
+            <option th:each="category : ${categoryList}"
+                    th:value="${category.id}"
+                    th:text="${category.name}"
+                    th:selected="${category.id == note.category?.id}">
+                User's custom categories
+            </option>
+        </select>
+        <br/>
+        <input type="text" name="title" th:value="${note.title}" placeholder="Title"/>
+        <br/>
+        <textarea name="content" placeholder="Content" th:value="${note.content}">[[${note.content}]]</textarea>
+        <br/>
+        <button type="submit" value="Save">Save</button>
+    </form>
+    <br/>
+    <form th:method="DELETE" th:action="@{/note}">
+        <input type="hidden" name="id" th:value="${note.id}">
+        <button type="submit" value="Delete">Delete</button>
+    </form>
+    <br/>
+</div>
+<script src="/js/profile.js"></script>
 </body>
 </html>
